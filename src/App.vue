@@ -1,28 +1,52 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+    <div id="app">
+        <div class="header">
+            <AppHeader></AppHeader>
+        </div>
+        <main>
+            <router-view/>
+        </main>
+        <div class="footer">
+            <AppFooter></AppFooter>
+        </div>
+    </div>
 </template>
 
 <script>
+import AppHeader from './containers/header'
+import AppFooter from './containers/footer'
 export default {
-  name: 'app'
+  name: 'app',
+  components : {
+    AppHeader,AppFooter,
+  }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-  img{
-    width:100px;
-    height:100px;
-    border:1px solid redn;
+@import './styles/_base.scss';
+
+</style>
+<style>
+  #app{
+    display:flex;
+    flex-direction: column;
+    height:100%;
+    width:100%;
   }
-}
+  .header{
+    height:.745rem;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+  main{
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow-y: scroll;
+  }
+  .footer{
+    height:.5rem;
+    flex-grow:0;
+    flex-shrink:0;
+  }
 </style>
